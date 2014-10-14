@@ -309,6 +309,7 @@ public class RiskGui extends JFrame implements Observer
 	{
 		public void actionPerformed( ActionEvent event )
 		{
+			@SuppressWarnings("unchecked")
 			JComboBox<String> fillerBox = (JComboBox) event.getSource();
 			String fortifySelect1 = (String) fillerBox.getSelectedItem();
 		
@@ -354,6 +355,7 @@ public class RiskGui extends JFrame implements Observer
 		public void actionPerformed( ActionEvent event )
 		{
 
+			@SuppressWarnings("unchecked")
 			JComboBox<String> fillerBox = (JComboBox) event.getSource();
 			String attackSelect1 = (String) fillerBox.getSelectedItem();
 
@@ -831,7 +833,7 @@ public class RiskGui extends JFrame implements Observer
 				// Increase armies by one
 					model.changeArmyCount( model.getBoard().getCountryByName( countryName ), 1 );
 			
-					countriesTempList = new ArrayList( Arrays.asList( countryStrings ) );
+					countriesTempList = new ArrayList<>( Arrays.asList( countryStrings ) );
 					countriesTempList.remove( countriesBox.getSelectedItem() );
 					countryStrings = new String[ countriesTempList.size() ];
 					countryStrings = countriesTempList.toArray( countryStrings ); 
@@ -1252,7 +1254,7 @@ public class RiskGui extends JFrame implements Observer
 					text1 = new JLabel( attackTerritory + " attacks " + defendTerritory + " with " + numberArmies + " armies" );
 				}
 				JLabel text2 = new JLabel( "How many armies would you like to defend with?" );
-				JComboBox box = new JComboBox( defendingCount );
+				JComboBox box = new JComboBox<>( defendingCount );
 				defendersPanel.add( text1 );
 				defendersPanel.add( text2 );
 				defendersPanel.add( box );
@@ -1292,7 +1294,7 @@ public class RiskGui extends JFrame implements Observer
 						moveCounts[ i ] = i + numberArmies;
 					}
 
-					JComboBox dBox = new JComboBox( moveCounts );
+					JComboBox dBox = new JComboBox<>( moveCounts );
 					JPanel dPanel = new JPanel();
 					dPanel.setLayout( new GridLayout( 3, 1 ) );
 					dPanel.add( dText1 );
